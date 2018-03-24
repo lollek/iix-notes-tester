@@ -14,9 +14,7 @@ func TestNotesList(t *testing.T) {
         t.Fatalf("Failed to unmarshal body: %s", err.Error())
     }
 
-    if len(data) != 73 {
-        t.Fatalf("Wrong amount in result, expected 73, was %d", len(data))
-    }
+    Assert(t, "Number of notes", 73, len(data))
 
     id1 := Find(data, func(v map[string]interface{}) bool { return v["id"] == 1.0 })
     if id1 == nil {
@@ -36,4 +34,8 @@ func TestNotesGet(t *testing.T) {
     if err != nil {
         t.Fatalf("Failed to unmarshal body: %s", err.Error())
     }
+
+    Assert(t, "id", float64(1), data["id"])
+    Assert(t, "date", "2013-04-11", data["date"])
+    Assert(t, "title", "Installing Spotify on Linux", data["title"])
 }
