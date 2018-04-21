@@ -33,7 +33,7 @@ func Find(data []map[string]interface{}, f func(map[string]interface{}) bool) *m
 
 func Assert(t *testing.T, what string, expected interface{}, was interface{}) {
     if expected != was {
-        t.Fatalf("Wrong %s! Expected %s but was %s", what, expected, was)
+        t.Fatalf("Wrong %s! Expected `%s` but was `%s`", what, expected, was)
     }
 }
 

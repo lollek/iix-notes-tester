@@ -14,7 +14,7 @@ func TestNotesList(t *testing.T) {
         t.Fatalf("Failed to unmarshal body: %s", err.Error())
     }
 
-    Assert(t, "Number of notes", 73, len(data))
+    Assert(t, "Number of notes", 75, len(data))
 
     id1 := Find(data, func(v map[string]interface{}) bool { return v["id"] == 1.0 })
     if id1 == nil {
